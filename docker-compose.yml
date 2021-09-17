@@ -1,0 +1,28 @@
+version: '2.4'
+
+services:
+  kaggle-env:
+    build:
+      context: ./configs
+      dockerfile: Dockerfile
+    image: m0hashi/kaggle-env
+    runtime: nvidia
+    ipc: host
+    container_name: kaggle-env
+    # privileged: true
+    environment: 
+    - NVIDIA_VISIBLE_DEVICES=all
+    - NVIDIA_DRIVER_CAPABILITIES=all
+    ports:
+      - "8879:8888" #for jupyter
+      - "22:22" # for ssh
+      - "6006:6006" # for tensorboard
+      - "5000:5000" # for mlflow
+    volumes:
+      # hostdir:container dir
+      - ~/workspace:/home/jupyter/workspace
+      - /home/${USER}/.ssh:/home/jupyter/.ssh
+      - /home/${USER}/.kaggle:/home/jupyter/.kaggle
+    user: "1000:1000" # UID:GID
+    entrypoint:  bash /home/jupyter/.local/bin/docker-entrypoint.sh
+    

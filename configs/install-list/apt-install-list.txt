@@ -1,0 +1,39 @@
+#package list for apt install
+
+# Based on https://github.com/Kaggle/docker-python
+# Needed by vowpalwabbit & lightGBM (GPU build).
+# https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Python#installing
+# https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#build-lightgbm
+build-essential
+unzip
+cmake
+libboost-dev
+libboost-program-options-dev
+libboost-system-dev
+libboost-thread-dev
+libboost-math-dev
+libboost-test-dev
+libboost-python-dev
+libboost-filesystem-dev
+zlib1g-dev
+
+#ssh client was removed from the base kaggle-image but is required for packages such as stable-baselines.
+openssh-client
+
+# Utilities
+wget 
+curl  
+bzip2 
+ca-certificates 
+libglib2.0-0 
+libxext6 
+libsm6 
+libxrender1
+libzmq3-dev
+git 
+vim
+htop
+mercurial 
+subversion 
+openssh-server 
+libssl-dev
