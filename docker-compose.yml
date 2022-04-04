@@ -20,7 +20,8 @@ services:
       - "5000:5000" # for mlflow
     volumes:
       # hostdir:container dir
-      - ~/workspace:/home/jupyter/workspace
+      #- ~/workspace:/home/jupyter/workspace
+      - /mnt/DataStore/workspace:/home/jupyter/workspace
       - /home/${USER}/.ssh:/home/jupyter/.ssh
       - /home/${USER}/.kaggle:/home/jupyter/.kaggle
     user: "1000:1000" # UID:GID

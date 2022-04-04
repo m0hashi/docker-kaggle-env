@@ -70,9 +70,12 @@ RUN echo "PATH=~/.local/bin/:$PATH" >> /home/${USERNAME}/.bashrc
 
 RUN pip install mlflow && \
     /tmp/clean-layer.sh
-RUN pip install jupyterlab==3.0 jupyterlab-lsp==3.8.0 jedi-language-server && \
+RUN pip install jupyterlab==3.1.12 jupyterlab-lsp==3.8.1 jedi-language-server && \
     /tmp/clean-layer.sh
 RUN pip install jupyterlab_vim && \
+    /tmp/clean-layer.sh
+    
+RUN pip install python-dotenv && \
     /tmp/clean-layer.sh
 
 USER root

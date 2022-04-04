@@ -1,4 +1,5 @@
+#!/bin/bash
 sudo -S /usr/sbin/sshd
-jupyter-lab --port 8888 --ip 0.0.0.0 --allow-root --notebook-dir=~/workspace --NotebookApp.token='' --no-browser &
+nohup jupyter-lab --port 8888 --allow-root --ip=0.0.0.0 --no-browser --NotebookApp.token='' --NotebookApp.allow_origin="*" > /dev/null 2>&1 &
 mlflow server --host 0.0.0.0
 tail -f /dev/null
